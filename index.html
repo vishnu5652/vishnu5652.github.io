@@ -1,1 +1,285 @@
-Hellow there
+<!DOCTYPE html>
+<!-- The 'dark' class will be dynamically added here by JS -->
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark" />
+    <title>Your Name | Personal Portfolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Muted Light Mode Colors
+                        'light-bg': '#F8FAFC',      
+                        'light-text': '#334155',    
+                        'light-primary': '#475569', 
+                        'light-card': '#FFFFFF', 
+                        'light-border': '#E2E8F0',
+                        // Muted Dark Mode Colors
+                        'dark-bg': '#0F172A',
+                        'dark-text': '#CBD5E1',
+                        'dark-primary': '#94A3B8',
+                        'dark-card': '#1E293B',
+                        'dark-border': '#334155',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .nav-link {
+            transition: color 0.3s ease-in-out;
+            position: relative;
+            padding-bottom: 4px;
+        }
+        .nav-link.active::after, .nav-link:not(.active):hover::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: currentColor;
+        }
+         section {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+         }
+         #home {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+         }
+         @media (min-width: 768px) {
+            #home {
+                padding-top: 10rem;
+                padding-bottom: 10rem;
+            }
+         }
+    </style>
+</head>
+<body class="bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text font-sans antialiased transition-colors duration-300">
+
+    <!-- Header & Navigation -->
+    <header class="w-full sticky top-0 z-50 bg-light-bg/80 dark:bg-dark-bg/80 backdrop-blur-sm border-b border-light-border dark:border-dark-border transition-colors duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-xl font-bold text-light-primary dark:text-dark-primary">Your Name</a>
+            <div class="flex items-center">
+                <div class="hidden md:flex items-center space-x-8 text-sm mr-8">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#news" class="nav-link">News</a>
+                    <a href="#publications" class="nav-link">Publications</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                </div>
+                <button id="theme-toggle" class="text-light-text dark:text-dark-text focus:outline-none">
+                    <svg id="theme-toggle-dark-icon" class="h-5 w-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="h-5 w-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 10.607a1 1 0 011.414 0l.707-.707a1 1 0 111.414 1.414l-.707.707a1 1 0 01-1.414 0zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                </button>
+                <button id="mobile-menu-button" class="md:hidden text-light-text dark:text-dark-text focus:outline-none ml-4">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-light-bg dark:bg-dark-bg border-t border-light-border dark:border-dark-border">
+            <a href="#about" class="block py-2 px-6 text-sm hover:bg-light-border dark:hover:bg-dark-border">About</a>
+            <a href="#news" class="block py-2 px-6 text-sm hover:bg-light-border dark:hover:bg-dark-border">News</a>
+            <a href="#publications" class="block py-2 px-6 text-sm hover:bg-light-border dark:hover:bg-dark-border">Publications</a>
+            <a href="#projects" class="block py-2 px-6 text-sm hover:bg-light-border dark:hover:bg-dark-border">Projects</a>
+            <a href="#experience" class="block py-2 px-6 text-sm hover:bg-light-border dark:hover:bg-dark-border">Experience</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6">
+        
+        <section id="home" class="text-center">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Vishnu Rajagopal</h1>
+                <p class="text-lg text-light-text/80 dark:text-dark-text/80 mb-4">
+                    Computer Engineering Ph.D. Student<br>
+                    Department of Electrical & Computer Engineering, Texas A&M University
+                </p>
+                <p class="text-light-text/70 dark:text-dark-text/70">
+                    I am interested in side-channel analysis, fault injection, and secure processor design.
+                </p>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/3 flex-shrink-0"><img src="https://placehold.co/400x400/E2E8F0/334155?text=Your+Photo" alt="A portrait of Your Name" class="rounded-lg w-full max-w-[250px] mx-auto object-cover border-4 border-light-border dark:border-dark-border"></div>
+                <div class="md:w-2/3 text-center md:text-left">
+                     <h2 class="text-3xl font-bold mb-6">About Me</h2>
+                    <p class="text-light-text/80 dark:text-dark-text/80 mb-4 leading-relaxed">I am a Ph.D. student at [Your University], advised by [Advisor's Name]. My research focuses on the security of embedded systems and computer architecture. Specifically, I work on developing countermeasures against physical attacks on modern microprocessors.</p>
+                    <p class="text-light-text/80 dark:text-dark-text/80 leading-relaxed">Before starting my Ph.D., I received my M.S./B.S. in Computer Engineering from [Previous University].</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="news">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-8">News</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start"><span class="text-light-primary dark:text-dark-primary font-semibold w-28 flex-shrink-0">Sep 2025</span><span class="text-light-text/90 dark:text-dark-text/90">Our paper on [Paper Topic] was accepted to [Conference Name]!</span></li>
+                    <li class="flex items-start"><span class="text-light-primary dark:text-dark-primary font-semibold w-28 flex-shrink-0">May 2025</span><span class="text-light-text/90 dark:text-dark-text/90">I will be joining [Company Name] as a research intern this summer.</span></li>
+                    <li class="flex items-start"><span class="text-light-primary dark:text-dark-primary font-semibold w-28 flex-shrink-0">Jan 2025</span><span class="text-light-text/90 dark:text-dark-text/90">Started my role as a Teaching Assistant for [Course Name].</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="publications">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-8">Publications</h2>
+                <div class="space-y-6">
+                    <!-- Publication Item 1 -->
+                    <div class="p-4 rounded-lg border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card">
+                        <p class="font-bold text-light-text dark:text-dark-text">"Title of Your Awesome Hardware Security Paper"</p>
+                        <p class="text-sm text-light-text/80 dark:text-dark-text/80"><strong>Your Name</strong>, Co-author Name, Another Co-author</p>
+                        <p class="text-sm text-light-text/70 dark:text-dark-text/70 italic">Proceedings of the Conference on Conference Names (CONF '25), City, Country, Sep 2025</p>
+                        <div class="mt-2 space-x-4"><a href="#" class="text-light-primary dark:text-dark-primary font-semibold text-sm hover:underline">[PDF]</a><a href="#" class="text-light-primary dark:text-dark-primary font-semibold text-sm hover:underline">[Slides]</a><a href="#" class="text-light-primary dark:text-dark-primary font-semibold text-sm hover:underline">[Code]</a></div>
+                    </div>
+                    <!-- Publication Item 2 -->
+                    <div class="p-4 rounded-lg border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card">
+                        <p class="font-bold text-light-text dark:text-dark-text">"Another Great Paper on a Different Topic"</p>
+                        <p class="text-sm text-light-text/80 dark:text-dark-text/80">Co-author Name, <strong>Your Name</strong>, Another Co-author</p>
+                        <p class="text-sm text-light-text/70 dark:text-dark-text/70 italic">Journal of Important Research (JIR), Vol. 1, No. 1, pp. 1-10, Jan 2024</p>
+                         <div class="mt-2 space-x-4"><a href="#" class="text-light-primary dark:text-dark-primary font-semibold text-sm hover:underline">[PDF]</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="max-w-4xl mx-auto">
+                 <h2 class="text-3xl font-bold text-center mb-8">Research & Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Project 1 -->
+                    <div class="border border-light-border dark:border-dark-border rounded-lg overflow-hidden bg-light-card dark:bg-dark-card h-full flex flex-col"><img src="https://placehold.co/600x400/E2E8F0/334155?text=Project+Diagram" class="w-full h-48 object-cover"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold mb-2">Side-Channel Attack Countermeasures</h3><p class="text-light-text/70 dark:text-dark-text/70 mb-4 flex-grow">Developing novel hardware-level defenses against power analysis attacks on cryptographic ICs.</p><a href="project1.html" class="text-light-primary dark:text-dark-primary font-semibold hover:underline mt-auto">Read More &rarr;</a></div></div>
+                    <!-- Project 2 -->
+                    <div class="border border-light-border dark:border-dark-border rounded-lg overflow-hidden bg-light-card dark:bg-dark-card h-full flex flex-col"><img src="https://placehold.co/600x400/E2E8F0/334155?text=FPGA+Board" class="w-full h-48 object-cover"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold mb-2">FPGA-based Secure Processor</h3><p class="text-light-text/70 dark:text-dark-text/70 mb-4 flex-grow">Designing and implementing a RISC-V processor with security extensions on an FPGA platform.</p><a href="project2.html" class="text-light-primary dark:text-dark-primary font-semibold hover:underline mt-auto">Read More &rarr;</a></div></div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="experience">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-8">Experience</h2>
+                <div class="space-y-6">
+                     <!-- Experience Item 1 -->
+                    <div class="p-4 rounded-lg border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card">
+                        <div class="flex justify-between items-start">
+                             <div>
+                                <p class="font-bold text-light-text dark:text-dark-text">Research Intern</p>
+                                <p class="text-sm text-light-text/80 dark:text-dark-text/80">[Company Name], [City, State]</p>
+                             </div>
+                             <p class="text-sm text-light-text/70 dark:text-dark-text/70 flex-shrink-0">Summer 2025</p>
+                        </div>
+                        <p class="mt-2 text-sm text-light-text/80 dark:text-dark-text/80">Briefly describe your responsibilities and achievements during the internship.</p>
+                    </div>
+                     <!-- Experience Item 2 -->
+                    <div class="p-4 rounded-lg border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card">
+                        <div class="flex justify-between items-start">
+                             <div>
+                                <p class="font-bold text-light-text dark:text-dark-text">Teaching Assistant</p>
+                                <p class="text-sm text-light-text/80 dark:text-dark-text/80">[Your University], [City, State]</p>
+                             </div>
+                             <p class="text-sm text-light-text/70 dark:text-dark-text/70 flex-shrink-0">Spring 2025</p>
+                        </div>
+                        <p class="mt-2 text-sm text-light-text/80 dark:text-dark-text/80">TA for ECE XXX: Course Title.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="border-t border-light-border dark:border-dark-border mt-12">
+        <div class="container mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center text-center sm:text-left">
+            <p class="text-sm text-light-text/60 dark:text-dark-text/60">&copy; 2024 Your Name. All Rights Reserved.</p>
+            <div class="flex mt-4 sm:mt-0 space-x-6 text-sm">
+                <a href="mailto:your.email@example.com" class="text-light-text/60 dark:text-dark-text/60 hover:text-light-primary dark:hover:text-dark-primary">Email</a>
+                <a href="#" class="text-light-text/60 dark:text-dark-text/60 hover:text-light-primary dark:hover:text-dark-primary">GitHub</a>
+                <a href="#" class="text-light-text/60 dark:text-dark-text/60 hover:text-light-primary dark:hover:text-dark-primary">Google Scholar</a>
+                <a href="#" class="text-light-text/60 dark:text-dark-text/60 hover:text-light-primary dark:hover:text-dark-primary">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Theme Toggling ---
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+            const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+            function applyTheme(theme) {
+                if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                    themeToggleLightIcon.classList.remove('hidden');
+                    themeToggleDarkIcon.classList.add('hidden');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    themeToggleDarkIcon.classList.remove('hidden');
+                    themeToggleLightIcon.classList.add('hidden');
+                }
+            }
+
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+            applyTheme(initialTheme);
+
+            themeToggleBtn.addEventListener('click', () => {
+                const newTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+                localStorage.setItem('theme', newTheme);
+                applyTheme(newTheme);
+            });
+
+            // --- Mobile Menu ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+            
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+
+
+            // --- Active Nav Link on Scroll ---
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('href').substring(1) === entry.target.id);
+                        });
+                    }
+                });
+            }, { rootMargin: "-50% 0px -50% 0px" });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
+
