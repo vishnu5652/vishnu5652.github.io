@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!-- The 'dark' class will be dynamically added here by JS -->
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark" />
+    <title>Project: Side-Channel Attack Countermeasures | Vishnu Rajagopal</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Config (Copied from main page for consistency) -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Muted Light Mode Colors
+                        'light-bg': '#F8FAFC',      
+                        'light-text': '#334155',    
+                        'light-primary': '#475569', 
+                        'light-card': '#FFFFFF', 
+                        'light-border': '#E2E8F0',
+                        // Muted Dark Mode Colors
+                        'dark-bg': '#0F172A',
+                        'dark-text': '#CBD5E1',
+                        'dark-primary': '#94A3B8',
+                        'dark-card': '#1E293B',
+                        'dark-border': '#334155',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text font-sans antialiased transition-colors duration-300">
+
+    <!-- Header & Navigation -->
+    <header class="w-full sticky top-0 z-50 bg-light-bg/80 dark:bg-dark-bg/80 backdrop-blur-sm border-b border-light-border dark:border-dark-border transition-colors duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- This link now takes you back to the home page -->
+            <a href="index.html" class="text-xl font-bold text-light-primary dark:text-dark-primary">Your Name</a>
+            <div class="flex items-center">
+                 <!-- Simple link back to projects -->
+                <div class="hidden md:flex items-center space-x-8 text-sm mr-8">
+                    <a href="index.html#projects" class="hover:text-light-primary dark:hover:text-dark-primary">Back to Projects</a>
+                </div>
+                <button id="theme-toggle" class="text-light-text dark:text-dark-text focus:outline-none">
+                    <svg id="theme-toggle-dark-icon" class="h-5 w-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="h-5 w-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 10.607a1 1 0 011.414 0l.707-.707a1 1 0 111.414 1.414l-.707.707a1 1 0 01-1.414 0zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-16">
+        <div class="max-w-4xl mx-auto">
+            <a href="index.html#projects" class="text-light-primary dark:text-dark-primary font-semibold hover:underline mb-8 inline-block">&larr; Back to All Projects</a>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Side-Channel Attack Countermeasures</h1>
+            <p class="text-lg text-light-text/70 dark:text-dark-text/70 mb-8">A deep dive into developing novel hardware-level defenses against power analysis attacks on cryptographic ICs.</p>
+            
+            <img src="https://placehold.co/1200x600/E2E8F0/334155?text=Project+Banner" class="w-full rounded-lg mb-12 border border-light-border dark:border-dark-border">
+            
+            <div class="prose dark:prose-invert max-w-none text-light-text/80 dark:text-dark-text/80 leading-relaxed space-y-6">
+                
+                <h2 class="text-2xl font-bold text-light-text dark:text-dark-text">Introduction</h2>
+                <p>This is where you can write a detailed description of your project. Talk about the problem you were trying to solve, the existing landscape of research, and the specific goals you set out to achieve. Explain the importance of the project in the context of hardware security.</p>
+                
+                <h2 class="text-2xl font-bold text-light-text dark:text-dark-text">Methodology</h2>
+                <p>Describe your process. Did you use a specific simulation environment, an FPGA platform, or real hardware? Detail the experimental setup, the types of attacks you simulated or performed (e.g., Correlation Power Analysis), and the cryptographic algorithms you targeted (e.g., AES).</p>
+                
+                <h2 class="text-2xl font-bold text-light-text dark:text-dark-text">Results &amp; Findings</h2>
+                <p>Present the outcome of your research. Show data, graphs, or tables that demonstrate the effectiveness of your countermeasures. Discuss any trade-offs, such as performance overhead or area cost. This is a great place to highlight the novelty of your work.</p>
+                
+                <p><strong>Technologies & Tools Used:</strong> Verilog/VHDL, Xilinx Vivado, Cadence Spectre, Python, ChipWhisperer</p>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="border-t border-light-border dark:border-dark-border mt-24">
+        <div class="container mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center text-center sm:text-left">
+            <p class="text-sm text-light-text/60 dark:text-dark-text/60">&copy; 2024 Your Name. All Rights Reserved.</p>
+            <div class="flex mt-4 sm:mt-0 space-x-6 text-sm">
+                 <a href="mailto:your.email@example.com" class="text-light-text/60 dark:text-dark-text/60 hover:text-light-primary dark:hover:text-dark-primary">Email</a>
+                <a href="#" class="text-light-text/60 dark:text-dark-text/60 hover:text-light-primary dark:hover:text-dark-primary">GitHub</a>
+                <a href="#" class="text-light-text/60 dark:text-dark-text/60 hover:text-light-primary dark:hover:text-dark-primary">Google Scholar</a>
+                <a href="#" class="text-light-text/60 dark:text-dark-text/60 hover:text-light-primary dark:hover:text-dark-primary">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // This script is for the dark/light mode toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+            const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+            function applyTheme(theme) {
+                if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                    themeToggleLightIcon.classList.remove('hidden');
+                    themeToggleDarkIcon.classList.add('hidden');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    themeToggleDarkIcon.classList.remove('hidden');
+                    themeToggleLightIcon.classList.add('hidden');
+                }
+            }
+            
+            // This line decides the default theme
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+            applyTheme(initialTheme);
+
+            themeToggleBtn.addEventListener('click', () => {
+                const newTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+                localStorage.setItem('theme', newTheme);
+                applyTheme(newTheme);
+            });
+        });
+    </script>
+</body>
+</html>
