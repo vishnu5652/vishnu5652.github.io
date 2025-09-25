@@ -71,6 +71,20 @@
                 padding-bottom: 10rem;
             }
          }
+         /* Style for the list in the About Me section */
+        .about-details-list li {
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .about-details-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #475569; /* light-primary */
+        }
+        .dark .about-details-list li::before {
+             color: #94A3B8; /* dark-primary */
+        }
     </style>
 </head>
 <body class="bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text font-sans antialiased transition-colors duration-300">
@@ -82,8 +96,10 @@
             <div class="flex items-center">
                 <div class="hidden md:flex items-center space-x-8 text-sm mr-8">
                     <a href="#about" class="nav-link">About</a>
-                    <!-- a href="#news" class="nav-link">News</a-->
-                    <!--a href="#publications" class="nav-link">Publications</a-->
+                    <!--
+                    <a href="#news" class="nav-link">News</a>
+                    <a href="#publications" class="nav-link">Publications</a>
+                    -->
                     <a href="#projects" class="nav-link">Projects</a>
                     <a href="#experience" class="nav-link">Experience</a>
                 </div>
@@ -98,8 +114,10 @@
         </nav>
         <div id="mobile-menu" class="hidden md:hidden bg-light-bg dark:bg-dark-bg border-t border-light-border dark:border-dark-border">
             <a href="#about" class="block py-2 px-6 text-sm hover:bg-light-border dark:hover:bg-dark-border">About</a>
+            <!--
             <a href="#news" class="block py-2 px-6 text-sm hover:bg-light-border dark:hover:bg-dark-border">News</a>
-            <!-- a href="#publications" class="block py-2 px-6 text-sm hover:bg-light-border dark:hover:bg-dark-border">Publications</a-->
+            <a href="#publications" class="block py-2 px-6 text-sm hover:bg-light-border dark:hover:bg-dark-border">Publications</a>
+            -->
             <a href="#projects" class="block py-2 px-6 text-sm hover:bg-light-border dark:hover:bg-dark-border">Projects</a>
             <a href="#experience" class="block py-2 px-6 text-sm hover:bg-light-border dark:hover:bg-dark-border">Experience</a>
         </div>
@@ -110,27 +128,55 @@
         <section id="home" class="text-center">
             <div class="max-w-3xl mx-auto">
                 <h1 class="text-4xl md:text-5xl font-bold mb-4">Vishnu Rajagopal</h1>
-                <p class="text-lg text-light-text/80 dark:text-dark-text/80 mb-4">
+                <p class="text-lg text-light-text/80 dark:text-dark-text/80 mb-6">
                     Computer Engineering Ph.D. Student<br>
                     Department of Electrical & Computer Engineering, Texas A&M University
                 </p>
-                <p class="text-light-text/70 dark:text-dark-text/70">
-                    I am interested in side-channel analysis, fault injection, and secure processor design.
-                </p>
+                <!-- Contact Info -->
+                <div class="flex justify-center items-center space-x-6 text-sm text-light-text/80 dark:text-dark-text/80">
+                    <a href="mailto:vishnu_rajagopal@tamu.edu" class="hover:text-light-primary dark:hover:text-dark-primary">Email</a>
+                    <span class="text-light-border dark:text-dark-border">|</span>
+                    <a href="https://www.linkedin.com/in/vishnu-rajago" target="_blank" rel="noopener noreferrer" class="hover:text-light-primary dark:hover:text-dark-primary">LinkedIn</a>
+                    <!--
+                    <span class="text-light-border dark:text-dark-border">|</span>
+                    <a href="#" class="hover:text-light-primary dark:hover:text-dark-primary">Google Scholar</a>
+                    <span class="text-light-border dark:text-dark-border">|</span>
+                    <a href="https://github.com/vishnu5652" target="_blank" rel="noopener noreferrer" class="hover:text-light-primary dark:hover:text-dark-primary">GitHub</a>
+                    -->
+                </div>
             </div>
+        </section>
+        
+        <!-- Research Interests Section -->
+        <section id="research-interests">
+             <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-8">Research Interests</h2>
+                <ul class="space-y-3 text-light-text/80 dark:text-dark-text/80 leading-relaxed max-w-2xl mx-auto text-left md:text-center list-disc list-inside">
+                    <li>Intersection of computer architecture and hardware security.</li>
+                    <li>Developing robust verification methodologies like coverage-guided fuzzing.</li>
+                    <li>Identifying security vulnerabilities and bugs in SoCs and processors.</li>
+                </ul>
+             </div>
         </section>
 
         <section id="about">
             <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/3 flex-shrink-0"><img src=images\vishnu.png class="rounded-lg w-full max-w-[250px] mx-auto object-cover border-4 border-light-border dark:border-dark-border"></div>
-                <div class="md:w-2/3 text-center md:text-left">
-                     <h2 class="text-3xl font-bold mb-6">About Me</h2>
-                    <p class="text-light-text/80 dark:text-dark-text/80 mb-4 leading-relaxed">I am a Ph.D. student at Texas A & M University, advised by Dr. Jeyavijayan(JV) Rajendran. My research focuses on hardware security and computer architecture. Specifically, I work on various verification methodologies like fuzzing to uncover bugs and vulnerabilities in Hardware.</p>
-                    <p class="text-light-text/80 dark:text-dark-text/80 leading-relaxed">Before starting my Ph.D., I received my Bachelor's in Electrical and Electronics Engineering from BITS Pilani, India.</p>
+                <div class="md:w-1/3 flex-shrink-0"><img src="images/vishnu.png" alt="A portrait of Vishnu Rajagopal" class="rounded-lg w-full max-w-[250px] mx-auto object-cover border-4 border-light-border dark:border-dark-border"></div>
+                <div class="md:w-2/3 text-left">
+                     <h2 class="text-3xl font-bold mb-6 text-center md:text-left">About Me</h2>
+                    <p class="text-light-text/80 dark:text-dark-text/80 mb-4 leading-relaxed">I am a Ph.D. student at Texas A & M University, advised by Dr. Jeyavijayan (JV) Rajendran. My research focuses on hardware security and computer architecture. Specifically, I work on various verification methodologies like fuzzing to uncover bugs and vulnerabilities in Hardware.</p>
+                    <p class="text-light-text/80 dark:text-dark-text/80 leading-relaxed mb-6">Before starting my Ph.D., I received my Bachelor's in Electrical and Electronics Engineering from BITS Pilani, India.</p>
+                    
+                    <ul class="space-y-2 text-light-text/90 dark:text-dark-text/90 about-details-list">
+                        <li>Advisor: <a href="https://seth.engr.tamu.edu/" target="_blank" rel="noopener noreferrer" class="font-semibold text-light-primary dark:text-dark-primary hover:underline">Dr. Jeyavijayan (JV) Rajendran</a></li>
+                        <li>My research is funded by the <a href="https://www.scale4me.org/" target="_blank" rel="noopener noreferrer" class="font-semibold text-light-primary dark:text-dark-primary hover:underline">SCALE fellowship</a>.</li>
+                        <li>Student in <a href="https://seth.engr.tamu.edu/" target="_blank" rel="noopener noreferrer" class="font-semibold text-light-primary dark:text-dark-primary hover:underline">SETH lab @TAMU</a>.</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
+        <!--
         <section id="news">
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-3xl font-bold text-center mb-8">News</h2>
@@ -141,19 +187,19 @@
                 </ul>
             </div>
         </section>
+        -->
 
+        <!--
         <section id="publications">
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-3xl font-bold text-center mb-8">Publications</h2>
                 <div class="space-y-6">
-                    <!-- Publication Item 1 -->
                     <div class="p-4 rounded-lg border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card">
                         <p class="font-bold text-light-text dark:text-dark-text">"Title of Your Awesome Hardware Security Paper"</p>
                         <p class="text-sm text-light-text/80 dark:text-dark-text/80"><strong>Your Name</strong>, Co-author Name, Another Co-author</p>
                         <p class="text-sm text-light-text/70 dark:text-dark-text/70 italic">Proceedings of the Conference on Conference Names (CONF '25), City, Country, Sep 2025</p>
                         <div class="mt-2 space-x-4"><a href="#" class="text-light-primary dark:text-dark-primary font-semibold text-sm hover:underline">[PDF]</a><a href="#" class="text-light-primary dark:text-dark-primary font-semibold text-sm hover:underline">[Slides]</a><a href="#" class="text-light-primary dark:text-dark-primary font-semibold text-sm hover:underline">[Code]</a></div>
                     </div>
-                    <!-- Publication Item 2 -->
                     <div class="p-4 rounded-lg border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card">
                         <p class="font-bold text-light-text dark:text-dark-text">"Another Great Paper on a Different Topic"</p>
                         <p class="text-sm text-light-text/80 dark:text-dark-text/80">Co-author Name, <strong>Your Name</strong>, Another Co-author</p>
@@ -163,19 +209,49 @@
                 </div>
             </div>
         </section>
+        -->
 
         <section id="projects">
             <div class="max-w-4xl mx-auto">
                  <h2 class="text-3xl font-bold text-center mb-8">Research & Projects</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Project 1 -->
-                    <div class="border border-light-border dark:border-dark-border rounded-lg overflow-hidden bg-light-card dark:bg-dark-card h-full flex flex-col"><img src="https://placehold.co/600x400/E2E8F0/334155?text=Project+Diagram" class="w-full h-48 object-cover"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold mb-2">Side-Channel Attack Countermeasures</h3><p class="text-light-text/70 dark:text-dark-text/70 mb-4 flex-grow">Developing novel hardware-level defenses against power analysis attacks on cryptographic ICs.</p><a href="project1.html" class="text-light-primary dark:text-dark-primary font-semibold hover:underline mt-auto">Read More &rarr;</a></div></div>
+                    <div class="border border-light-border dark:border-dark-border rounded-lg overflow-hidden bg-light-card dark:bg-dark-card h-full flex flex-col"><img src="https://placehold.co/600x400/E2E8F0/334155?text=Project+Diagram" class="w-full h-48 object-cover"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold mb-2">Hardware Fuzzing</h3><p class="text-light-text/70 dark:text-dark-text/70 mb-4 flex-grow">Using randomness to improve verification of hardware.</p><a href="project1.html" class="text-light-primary dark:text-dark-primary font-semibold hover:underline mt-auto">Read More &rarr;</a></div></div>
                     <!-- Project 2 -->
-                    <div class="border border-light-border dark:border-dark-border rounded-lg overflow-hidden bg-light-card dark:bg-dark-card h-full flex flex-col"><img src="https://placehold.co/600x400/E2E8F0/334155?text=FPGA+Board" class="w-full h-48 object-cover"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold mb-2">FPGA-based Secure Processor</h3><p class="text-light-text/70 dark:text-dark-text/70 mb-4 flex-grow">Designing and implementing a RISC-V processor with security extensions on an FPGA platform.</p><a href="project2.html" class="text-light-primary dark:text-dark-primary font-semibold hover:underline mt-auto">Read More &rarr;</a></div></div>
+                    <!--div class="border border-light-border dark:border-dark-border rounded-lg overflow-hidden bg-light-card dark:bg-dark-card h-full flex flex-col"><img src="https://placehold.co/600x400/E2E8F0/334155?text=FPGA+Board" class="w-full h-48 object-cover"><div class="p-6 flex-grow flex flex-col"><h3 class="text-xl font-bold mb-2">FPGA-based Secure Processor</h3><p class="text-light-text/70 dark:text-dark-text/70 mb-4 flex-grow">Designing and implementing a RISC-V processor with security extensions on an FPGA platform.</p><a href="project2.html" class="text-light-primary dark:text-dark-primary font-semibold hover:underline mt-auto">Read More &rarr;</a></div></div>
+                    -->
                 </div>
             </div>
         </section>
         
+        <section id="education">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-8">Education</h2>
+                <div class="space-y-6">
+                     <!-- Education Item 1 -->
+                    <div class="p-4 rounded-lg border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card">
+                        <div class="flex justify-between items-start">
+                             <div>
+                                <p class="font-bold text-light-text dark:text-dark-text">Ph.D. in Computer Engineering</p>
+                                <p class="text-sm text-light-text/80 dark:text-dark-text/80">Texas A&M University, College Station, TX</p>
+                             </div>
+                             <p class="text-sm text-light-text/70 dark:text-dark-text/70 flex-shrink-0">Aug 2025 &ndash Present</p>
+                        </div>
+                    </div>
+                     <!-- Education Item 2 -->
+                    <div class="p-4 rounded-lg border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card">
+                        <div class="flex justify-between items-start">
+                             <div>
+                                <p class="font-bold text-light-text dark:text-dark-text">Bachelor of Engineering in Electrical and Electronics Engineering</p>
+                                <p class="text-sm text-light-text/80 dark:text-dark-text/80">BITS Pilani, K.K. Birla Goa Campus, India</p>
+                             </div>
+                             <p class="text-sm text-light-text/70 dark:text-dark-text/70 flex-shrink-0">Aug 2021 &ndash Jul 2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="experience">
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-3xl font-bold text-center mb-8">Experience</h2>
@@ -184,10 +260,10 @@
                     <div class="p-4 rounded-lg border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card">
                         <div class="flex justify-between items-start">
                              <div>
-                                <p class="font-bold text-light-text dark:text-dark-text">Research Intern</p>
-                                <p class="text-sm text-light-text/80 dark:text-dark-text/80">[Company Name], [City, State]</p>
+                                <p class="font-bold text-light-text dark:text-dark-text">Physical Design Intern</p>
+                                <p class="text-sm text-light-text/80 dark:text-dark-text/80">AMD, India</p>
                              </div>
-                             <p class="text-sm text-light-text/70 dark:text-dark-text/70 flex-shrink-0">Summer 2025</p>
+                             <p class="text-sm text-light-text/70 dark:text-dark-text/70 flex-shrink-0">Jan 2025 &ndash Jul 2025</p>
                         </div>
                         <p class="mt-2 text-sm text-light-text/80 dark:text-dark-text/80">Briefly describe your responsibilities and achievements during the internship.</p>
                     </div>
@@ -196,7 +272,7 @@
                         <div class="flex justify-between items-start">
                              <div>
                                 <p class="font-bold text-light-text dark:text-dark-text">Teaching Assistant</p>
-                                <p class="text-sm text-light-text/80 dark:text-dark-text/80">[Your University], [City, State]</p>
+                                <p class="text-sm text-light-text/80 dark:text-dark-text/80">Texas A&M University, College Station, TX</p>
                              </div>
                              <p class="text-sm text-light-text/70 dark:text-dark-text/70 flex-shrink-0">Spring 2025</p>
                         </div>
@@ -205,17 +281,47 @@
                 </div>
             </div>
         </section>
+<!--
+        <section id="awards">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-8">Awards</h2>
+                <div class="space-y-6">
+                     <!-- Award Item 1 -->
+  <!--                  <div class="p-4 rounded-lg border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card">
+                        <div class="flex justify-between items-start">
+                             <div>
+                                <p class="font-bold text-light-text dark:text-dark-text">SCALE Fellowship</p>
+                                <p class="text-sm text-light-text/80 dark:text-dark-text/80">Scalable Asymmetric Lifecycle Engagement</p>
+                             </div>
+                             <p class="text-sm text-light-text/70 dark:text-dark-text/70 flex-shrink-0">2023</p>
+                        </div>
+                    </div>
+                     <!-- Award Item 2 -->
+<!--                    <div class="p-4 rounded-lg border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card">
+                        <div class="flex justify-between items-start">
+                             <div>
+                                <p class="font-bold text-light-text dark:text-dark-text">[Placeholder Award Name]</p>
+                                <p class="text-sm text-light-text/80 dark:text-dark-text/80">[Awarding Organization]</p>
+                             </div>
+                             <p class="text-sm text-light-text/70 dark:text-dark-text/70 flex-shrink-0">[Year]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </main>
-    
+-->    
     <footer class="border-t border-light-border dark:border-dark-border mt-12">
         <div class="container mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center text-center sm:text-left">
-            <p class="text-sm text-light-text/60 dark:text-dark-text/60">&copy; 2024 Your Name. All Rights Reserved.</p>
+            <p class="text-sm text-light-text/60 dark:text-dark-text/60">&copy; 2025 Vishnu Rajagopal. All Rights Reserved.</p>
             <div class="flex mt-4 sm:mt-0 space-x-6 text-sm">
                 <a href="mailto:vishnu_rajagopal@tamu.edu" class="text-light-text/60 dark:text-dark-text/60 hover:text-light-primary dark:hover:text-dark-primary">Email</a>
-                <!--a href="github.com/vishnu5652" class="text-light-text/60 dark:text-dark-text/60 hover:text-light-primary dark:hover:text-dark-primary">GitHub</a-->
-                <!--a href="#" class="text-light-text/60 dark:text-dark-text/60 hover:text-light-primary dark:hover:text-dark-primary">Google Scholar</a-->
-                <a href="https://www.linkedin.com/in/vishnu-rajago" class="text-light-text/60 dark:text-dark-text/60 hover:text-light-primary dark:hover:text-dark-primary">LinkedIn</a>
+                <!--
+                <a href="https://github.com/vishnu5652" target="_blank" rel="noopener noreferrer" class="text-light-text/60 dark:text-dark-text/60 hover:text-light-primary dark:hover:text-dark-primary">GitHub</a>
+                <a href="#" class="text-light-text/60 dark:text-dark-text/60 hover:text-light-primary dark:hover:text-dark-primary">Google Scholar</a>
+                -->
+                <a href="https://www.linkedin.com/in/vishnu-rajago" target="_blank" rel="noopener noreferrer" class="text-light-text/60 dark:text-dark-text/60 hover:text-light-primary dark:hover:text-dark-primary">LinkedIn</a>
             </div>
         </div>
     </footer>
@@ -241,7 +347,7 @@
 
             const savedTheme = localStorage.getItem('theme');
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+            const initialTheme = savedTheme || 'light'; // Set light as default
             applyTheme(initialTheme);
 
             themeToggleBtn.addEventListener('click', () => {
@@ -268,8 +374,12 @@
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
+                        const activeId = entry.target.id;
+                         // Special handling for research interests to activate 'about' link
+                        const navId = (activeId === 'research-interests') ? 'about' : activeId;
+
                         navLinks.forEach(link => {
-                            link.classList.toggle('active', link.getAttribute('href').substring(1) === entry.target.id);
+                            link.classList.toggle('active', link.getAttribute('href').substring(1) === navId);
                         });
                     }
                 });
